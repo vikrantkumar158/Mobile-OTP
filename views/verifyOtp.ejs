@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Verify Otp</title>
+</head>
+<body>
+<form method="POST" action="/verify">
+	<input type="text" id="phone" name="phone" value="<%= phone %>" disabled>
+	<input type="text" name="otp">
+	<input type="Submit">
+	<button onclick="resend()">Resend</button>
+</form>
+</body>
+<script type="text/javascript">
+var resend=()=>{
+	var xhttp=new XMLHttpRequest();
+	xhttp.open("POST","/resend");
+	xhttp.setRequestHeader("Content-Type","application/json");
+	xhttp.send(JSON.stringify({phone:document.getElementById('phone').value}));
+	xhttp.onload=()=>{
+		location.reload();		
+	}
+}
+</script>
+</html>
