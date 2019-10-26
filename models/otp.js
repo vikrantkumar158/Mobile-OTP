@@ -4,6 +4,8 @@ var sendOtp=require('sendotp');
 
 /* Replace your Auth Key here */
 var sendOtp=new sendOtp('AuthKey','Otp for your order is {{otp}}, please do not share it with anybody');
+/*                         ^^*/
+/*                         ||*/
 sendOtp.setOtpExpiry('5');
 
 exports.send = (phone,otp,cb)=>
